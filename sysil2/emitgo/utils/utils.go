@@ -1,6 +1,6 @@
 package utils
 
-import "github.com/tinyrange/tinyrange/v3/experimental/structGenerator/emitgo"
+import "github.com/tinyrange/vm/sysil2/emitgo"
 
 func Cast(target emitgo.Node, source emitgo.Node) emitgo.Node {
 	return emitgo.CastExpression{
