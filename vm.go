@@ -349,6 +349,14 @@ func (vm *VirtualMemory) WriteAt(p []byte, off int64) (n int, err error) {
 	return
 }
 
+func (vm *VirtualMemory) Reset() error {
+	// Clear all the old pages and write pages.
+	vm.pages = make([]MemoryRegion, len(vm.pages))
+	vm.writePages = make([]*RawRegion, len(vm.writePages))
+
+	return nil
+}
+
 func (vm *VirtualMemory) DumpStats() {
 	slog.Info("vm stats",
 		"totalMaps", vm.totalMaps,
